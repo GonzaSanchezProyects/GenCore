@@ -10,7 +10,8 @@ const PRODUCTS = [
     status: 'Disponible',
     tagline: 'CRM integral para gimnasios. Control de accesos, socios y facturación en tiempo real.',
     pills: ['Multi-tenant', 'QR Realtime', 'Portal alumno'],
-    href: '/genfit',
+    href: 'https://genfit-info.site', // Tu nuevo link
+    btnText: 'Explorar'
   },
   {
     id: 'genbox',
@@ -19,7 +20,8 @@ const PRODUCTS = [
     status: 'En desarrollo',
     tagline: 'Gestión operativa para equipos distribuidos. Workflows, tareas y automatización.',
     pills: ['B2B', 'Workflows', '2025'],
-    href: '/genbox',
+    href: '#', 
+    btnText: 'En construcción' // Solo cambiamos el texto
   },
 ]
 

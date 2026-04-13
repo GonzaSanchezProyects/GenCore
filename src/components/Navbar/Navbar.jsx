@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import ContactPopup from '../ContactPopup/ContactPopup'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -12,16 +14,26 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <Link to="/" className={styles.logo}>Gen<em>Core</em></Link>
-      <div className={styles.links}>
-        <a href="#productos" className={styles.link}>Productos</a>
-        <a href="#servicios" className={styles.link}>Servicios</a>
-        <a href="#nosotros" className={styles.link}>Nosotros</a>
-      </div>
-      <button className={styles.cta}>
-        Hablemos <span className={styles.ctaArrow}>→</span>
-      </button>
-    </nav>
+    <>
+      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+        <Link to="/" className={styles.logo}>Gen<em>Core</em></Link>
+        <div className={styles.links}>
+          <a href="#productos" className={styles.link}>Productos</a>
+          <a href="#servicios" className={styles.link}>Servicios</a>
+          <a href="#nosotros" className={styles.link}>Nosotros</a>
+        </div>
+        <button 
+          className={styles.cta} 
+          onClick={() => setIsContactOpen(true)}
+        >
+          Hablemos <span className={styles.ctaArrow}>→</span>
+        </button>
+      </nav>
+
+      <ContactPopup 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} 
+      />
+    </>
   )
 }

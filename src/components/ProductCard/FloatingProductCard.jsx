@@ -54,9 +54,10 @@ export default function FloatingProductCard({ product }) {
           <span key={pill} className={styles.pill}>{pill}</span>
         ))}
       </div>
-
       <a href={product.href} className={styles.cardCta}>
-        <span>Explorar</span>
+        {/* Cambiamos "Explorar" por esto: */}
+        <span>{product.btnText || 'Explorar'}</span> 
+        
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>

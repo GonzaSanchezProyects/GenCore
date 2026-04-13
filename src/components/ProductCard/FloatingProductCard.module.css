@@ -137,3 +137,29 @@
   .card { width: 260px; padding: 22px 22px 20px; }
   .productName { font-size: 42px; }
 }
+
+/* Estilo para el botón de GenBox (En construcción) */
+.genbox .cardCta {
+
+  color: #888888; /* Texto gris */
+
+  cursor: default; /* Quita la mano del mouse */
+  pointer-events: none; /* Evita que sea clickeable */
+}
+
+/* Quitamos el brillo del icono en GenBox */
+.genbox .cardCta svg {
+  opacity: 0.5;
+}
+
+/* Anulamos cualquier efecto hover para GenBox */
+.genbox .cardCta:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #333333;
+  color: #888888;
+}
+
+.genbox .cardCta svg {
+  display: none;
+}
