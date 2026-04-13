@@ -1,0 +1,139 @@
+.card {
+  position: relative;
+  width: 300px;
+  padding: 28px 28px 24px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-md);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  transition: transform 0.12s ease, border-color 0.3s ease;
+  cursor: default;
+  will-change: transform;
+}
+
+.genfit {
+  animation: floatA 6s ease-in-out infinite;
+  border-color: rgba(0,245,196,0.15);
+}
+
+.genbox {
+  animation: floatB 7s ease-in-out infinite;
+  border-color: rgba(139,111,255,0.15);
+}
+
+.genfit:hover { border-color: rgba(0,245,196,0.35); }
+.genbox:hover { border-color: rgba(139,111,255,0.35); }
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-18px) rotate(0.5deg); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(-10px) rotate(1deg); }
+  50%       { transform: translateY(8px) rotate(-0.5deg); }
+}
+
+.cardGlow {
+  position: absolute;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  top: -40px; right: -40px;
+  pointer-events: none;
+  filter: blur(50px);
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.genfit .cardGlow {
+  background: radial-gradient(circle, rgba(0,245,196,0.3) 0%, transparent 70%);
+}
+
+.genbox .cardGlow {
+  background: radial-gradient(circle, rgba(139,111,255,0.35) 0%, transparent 70%);
+}
+
+.card:hover .cardGlow { opacity: 0.8; }
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.statusDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  animation: pulse 2.5s infinite;
+}
+
+.genfit .statusDot { background: var(--neon); box-shadow: 0 0 8px var(--neon); }
+.genbox .statusDot { background: var(--violet); box-shadow: 0 0 8px var(--violet); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+.statusLabel {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.5px; color: var(--text-dim); flex: 1;
+}
+
+.badge {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 100px;
+}
+
+.genfit .badge { background: rgba(0,245,196,0.1); color: var(--neon); border: 1px solid rgba(0,245,196,0.2); }
+.genbox .badge { background: rgba(139,111,255,0.1); color: var(--violet); border: 1px solid rgba(139,111,255,0.2); }
+
+.productName {
+  font-family: var(--font-display);
+  font-size: 52px; letter-spacing: 3px; line-height: 1; margin-bottom: 12px;
+}
+
+.nameGen { color: var(--text-dim); }
+.genfit .nameProduct { color: var(--neon); }
+.genbox .nameProduct { color: var(--violet); }
+
+.tagline {
+  font-size: 13px; font-weight: 300; color: var(--text-md);
+  line-height: 1.6; margin-bottom: 20px; min-height: 42px;
+}
+
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+
+.pill {
+  font-size: 10px; font-weight: 400; color: var(--text-dim);
+  border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; letter-spacing: 0.3px;
+}
+
+.cardCta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
+  transition: gap 0.2s, color 0.2s; text-decoration: none;
+}
+
+.genfit .cardCta { color: var(--neon); }
+.genbox .cardCta { color: var(--violet); }
+.cardCta:hover { gap: 14px; }
+
+.cornerTL, .cornerBR {
+  position: absolute; width: 16px; height: 16px; pointer-events: none;
+}
+
+.cornerTL { top: 12px; left: 12px; border-top: 1px solid; border-left: 1px solid; border-radius: 3px 0 0 0; opacity: 0.25; }
+.cornerBR { bottom: 12px; right: 12px; border-bottom: 1px solid; border-right: 1px solid; border-radius: 0 0 3px 0; opacity: 0.25; }
+
+.genfit .cornerTL, .genfit .cornerBR { border-color: var(--neon); }
+.genbox .cornerTL, .genbox .cornerBR { border-color: var(--violet); }
+
+@media (max-width: 768px) {
+  .card { width: 260px; padding: 22px 22px 20px; }
+  .productName { font-size: 42px; }
+}

@@ -1,0 +1,218 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  padding: 80px 40px 100px;
+}
+
+.glowLeft {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,245,196,0.07) 0%, transparent 65%);
+  top: 50%; left: -15%;
+  transform: translateY(-50%);
+  pointer-events: none; z-index: 0;
+}
+
+.glowRight {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,111,255,0.09) 0%, transparent 65%);
+  top: 50%; right: -10%;
+  transform: translateY(-50%);
+  pointer-events: none; z-index: 0;
+}
+
+.hLine1, .hLine2 {
+  position: absolute;
+  left: 0; right: 0; height: 1px;
+  pointer-events: none; z-index: 0;
+}
+
+.hLine1 {
+  top: 30%;
+  background: linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.04) 30%, rgba(255,255,255,0.04) 70%, transparent 95%);
+}
+
+.hLine2 {
+  bottom: 28%;
+  background: linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent 95%);
+}
+
+.center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: riseIn 0.9s var(--ease-out) both;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+
+.eyebrowLine {
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--text-dim);
+}
+
+.titleWrap {
+  transition: transform 0.1s linear;
+  will-change: transform;
+  margin-bottom: 24px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.92;
+}
+
+.titleOutline {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 80px);
+  letter-spacing: 6px;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
+
+.titleSolid {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 140px);
+  letter-spacing: 8px;
+  color: var(--text);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.titleAccent {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 80px);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--neon) 0%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(13px, 1.6vw, 16px);
+  font-weight: 300;
+  color: var(--text-md);
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  margin-bottom: 36px;
+}
+
+.suiteDivider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.suiteLine {
+  display: block;
+  width: 48px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-hi));
+}
+
+.suiteLine:last-child {
+  background: linear-gradient(90deg, var(--border-hi), transparent);
+}
+
+.suiteLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.cardsContainer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 48px;
+  margin-top: 52px;
+  align-items: flex-start;
+  animation: riseIn 1s 0.25s var(--ease-out) both;
+}
+
+.cardSlot {
+  animation: riseIn 0.8s calc(0.3s + var(--delay)) var(--ease-out) both;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: riseIn 1s 0.8s var(--ease-out) both;
+}
+
+.scrollLabel {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.scrollTrack {
+  width: 1px; height: 44px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollThumb {
+  width: 1px; height: 20px;
+  background: var(--neon);
+  border-radius: 1px;
+  animation: scrollSlide 2.2s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes scrollSlide {
+  0%   { transform: translateY(-20px); opacity: 0; }
+  20%  { opacity: 0.6; }
+  80%  { opacity: 0.6; }
+  100% { transform: translateY(44px); opacity: 0; }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .cardsContainer { flex-direction: column; gap: 20px; align-items: center; }
+  .glowLeft, .glowRight { display: none; }
+}

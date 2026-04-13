@@ -1,0 +1,58 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:          #04050f;
+  --bg-2:        #070916;
+  --surface:     rgba(255, 255, 255, 0.035);
+  --surface-md:  rgba(255, 255, 255, 0.06);
+  --surface-hi:  rgba(255, 255, 255, 0.09);
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-md:   rgba(255, 255, 255, 0.13);
+  --border-hi:   rgba(255, 255, 255, 0.22);
+
+  --neon:        #00f5c4;
+  --neon-dim:    rgba(0, 245, 196, 0.15);
+  --neon-glow:   rgba(0, 245, 196, 0.25);
+  --violet:      #8b6fff;
+  --violet-dim:  rgba(139, 111, 255, 0.15);
+  --violet-glow: rgba(139, 111, 255, 0.25);
+
+  --genfit-a:    #00f5c4;
+  --genfit-b:    #00c9a0;
+  --genbox-a:    #8b6fff;
+  --genbox-b:    #c46aff;
+
+  --text:        #eceef8;
+  --text-md:     rgba(236, 238, 248, 0.55);
+  --text-dim:    rgba(236, 238, 248, 0.25);
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(0,245,196,0.18); border-radius: 2px; }
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: var(--font-body); }
+img, svg { display: block; }
