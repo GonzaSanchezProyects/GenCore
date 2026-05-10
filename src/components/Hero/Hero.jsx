@@ -20,8 +20,8 @@ const PRODUCTS = [
     status: 'En desarrollo',
     tagline: 'Gestión operativa para equipos distribuidos. Workflows, tareas y automatización.',
     pills: ['B2B', 'Workflows', '2025'],
-    href: '#', 
-    btnText: 'En construcción' // Solo cambiamos el texto
+    href: 'https://gen-box-landing.vercel.app/', 
+    btnText: 'Explorar' // Solo cambiamos el texto
   },
 ]
 
